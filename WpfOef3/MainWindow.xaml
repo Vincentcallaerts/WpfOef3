@@ -5,9 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfOef3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="511.363" Width="812.748">
     <Grid>
         <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Menu">
+                    <MenuItem x:Name="miClear" Header="_Clear Text" Click="miClear_Click"></MenuItem>
+                    <MenuItem x:Name="miCopy" Header="_Copie Text" Click="miCopy_ClickCopie"></MenuItem>
+                    <MenuItem x:Name="miPaste" Header="_Paste Text" Click="miPaste_ClickPaste"></MenuItem>
+                    <MenuItem x:Name="miRedo" Header="_Undo" Click="miPaste_ClickRedo"></MenuItem>
+                    <MenuItem x:Name="miUndo" Header="_Redo" Click="miPaste_ClickUndo"></MenuItem>
+                </MenuItem>
+            </Menu>
             <StackPanel DockPanel.Dock="Left">
                 <Label HorizontalAlignment="Center">Eerste Oef</Label>
                 <ComboBox x:Name="cmbGeslacht" Margin="0,10,0,10" Width="350">
@@ -32,7 +41,7 @@
                     Click
                 </Button>
                 <Label HorizontalAlignment="Center">Tweede Oef</Label>
-
+                
                 <StackPanel Width="128">
                     <TabControl>
                         <TabItem Header="First Tab">
@@ -43,14 +52,46 @@
                         </TabItem>
                     </TabControl>
                 </StackPanel>
+                <Label HorizontalAlignment="Center">Zesde Oef</Label>
+
+                <StackPanel HorizontalAlignment="Left" Margin="0,10,0,0">
+                    <CheckBox x:Name="cbRood" Checked ="CheckBox_Checked">Rood</CheckBox>
+                    <CheckBox x:Name="cbGroen" Checked ="CheckBox_Checked">Groen</CheckBox>
+                    <CheckBox x:Name="cbGeel" Checked ="CheckBox_Checked">Geel</CheckBox>
+                    <CheckBox x:Name="cbBlauw" Checked ="CheckBox_Checked">Blauw</CheckBox>
+                    <CheckBox x:Name="cbOrange" Checked ="CheckBox_Checked">Orange</CheckBox>
+                    <Button x:Name="btnCheckers" Width="100" Height="32" Margin="0,10,0,0" Click="btnCheckers_Click">Show Selected</Button>
+
+
+                </StackPanel>
             </StackPanel>
-            <StackPanel DockPanel.Dock="Right">
+            <StackPanel Margin="15,0,15,10" DockPanel.Dock="Right">
+                <Label HorizontalAlignment="Center">Derde Oef</Label>
+
                 <Button x:Name="btnHiddenContent" Width="100" Height="32" Margin="0,10,0,10" Click="btnHiddenContent_Click">Click</Button>
-                <StackPanel x:Name="spHidden" Background="AliceBlue" Visibility="Collapsed" Width="300">
+                <StackPanel x:Name="spHidden" Background="AliceBlue" Visibility="Collapsed" Margin="0,0,0,10" Width="300">
                     <Label x:Name="lbGoBlue" HorizontalAlignment="Center">Hier is wat derpo text uwu</Label>
                     <Button x:Name="btnBlue" Width="100" Height="32" Margin="0,10,0,10" Click="btnBlue_Click">Be Gone</Button>
                 </StackPanel>
+                <Label HorizontalAlignment="Center">Vierde Oef</Label>
+
+                <TextBox x:Name="tbMenuManipulation" TextWrapping="Wrap" Height="100" TextChanged="tbMenuManipulation_TextChanged" Margin="0,0,0,10"/>
+                <Label HorizontalAlignment="Center">Vijfde Oef</Label>
+
+                <ListBox x:Name="lbPerson" Height="100">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <Image Source="{Binding ImagePath}"></Image>
+                                <TextBlock Text="{Binding FullName}"/>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                
             </StackPanel>
+
         </DockPanel>
     </Grid>
 </Window>
